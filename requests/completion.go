@@ -11,7 +11,6 @@ import (
 type CreateCompletionBody struct {
 	Model            string   `json:"model"`
 	Prompt           string   `json:"prompt"`
-	Suffix           string   `json:"suffix"`
 	MaxTokens        int      `json:"max_tokens"`
 	Temperature      float64  `json:"temperature"`
 	TopP             float64  `json:"top_p"`
@@ -49,12 +48,6 @@ func NewCreateCompletion(apiKey, model string) *CreateCompletion {
 // WithPrompt sets the prompt for the request.
 func (c *CreateCompletion) WithPrompt(prompt string) *CreateCompletion {
 	c.Body.Prompt = prompt
-	return c
-}
-
-// WithSuffix sets the suffix for the request.
-func (c *CreateCompletion) WithSuffix(suffix string) *CreateCompletion {
-	c.Body.Suffix = suffix
 	return c
 }
 
